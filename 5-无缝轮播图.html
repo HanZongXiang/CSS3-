@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>无缝轮播图</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      width: 500px;
+      height: 200px;
+      margin:50px auto;
+      border:1px solid #555;
+      overflow: hidden;
+    }
+    ul{
+      width: 2000px;
+      height: 200px;
+      clear: both;
+      animation-name: go;
+      animation-duration:5s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    ul li{
+      width: 300px;
+      height: 200px;
+      list-style: none;
+      float: left;
+    }
+    .container:hover ul{
+      animation-play-state: paused;
+    }
+    ul:hover li{
+      opacity:.8;
+    }
+    ul>li:hover{
+      opacity:1;
+    }
+    @keyframes go{
+      from {
+        transform: translateX(0)
+      }
+      to {
+        transform: translateX(-1200px)
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <li>
+        <img src="./imgs/无缝轮播图/04.jpg">
+      </li>
+      <li>
+        <img src="./imgs/无缝轮播图/01.jpg">
+      </li>
+      <li>
+        <img src="./imgs/无缝轮播图/02.jpg">
+      </li>
+      <li>
+        <img src="./imgs/无缝轮播图/03.jpg">
+      </li>
+      <li>
+        <img src="./imgs/无缝轮播图/04.jpg">
+      </li>
+      <li>
+        <img src="./imgs/无缝轮播图/01.jpg">
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D立方体</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .container{
+            transform-style:preserve-3d ;
+        }
+
+        .container:hover ul{
+            transform:rotateX(1800deg);
+        }
+
+        ul{
+            position:relative;
+            list-style-type: none;
+            width: 200px;
+            height: 200px;
+            margin:50px auto;
+            transform-style: preserve-3d;
+            transition: all linear 12s;
+        }
+
+        li{
+            position:absolute;
+            width: 200px;
+            height: 200px;
+            border: 1px solid #000;
+            line-height: 200px;
+            text-align: center;
+            font-size: 26px;
+        }
+        li:nth-child(1){
+            background: gold;
+            transform: translateZ(100px);
+        }
+        li:nth-child(2){
+            background: #f00;
+            transform: rotateX(90deg) translateZ(100px);
+        }
+        li:nth-child(3){
+            background: #f0f;
+        }
+        li:nth-child(4){
+            background: #00f;
+        }
+        li:nth-child(5){
+            background: #00ff00;
+        }
+        li:nth-child(6){
+            background: #ff6700;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li>1</li>
+            <li>4</li>
+            <li>3</li>
+            <li>2</li>
+            <li>5</li>
+            <li>6</li>
+        </ul>
+    </div>
+</body>
+</html>

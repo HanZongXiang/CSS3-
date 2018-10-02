@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Animation动画</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    :root:hover .box{
+      animation-play-state: paused;
+    }
+    .box{
+      width: 100px;
+      height: 100px;
+      background: #f00;
+      border:1px solid #000;
+      animation-name: animate;
+      animation-duration: 6s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+    }
+    @keyframes animate{
+      0% {
+        transform: translateX(0)
+      }
+      25% {
+        transform: translateX(500px)
+      }
+      50% {
+        transform: translateX(750px) translateY(300px)
+      }
+      75% {
+        transform: translateX(0) translateY(750px)
+      }
+      100% {
+        transform: translateX(0) translateY(0)
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="box"></div>
+</body>
+</html>

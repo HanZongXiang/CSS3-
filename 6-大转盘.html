@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>大转盘</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .container{
+      position: relative;
+      width: 650px;
+      height: 600px;
+      margin:0 auto;
+      background: url('./imgs/大转盘素材/turntable-bg.jpg')
+    }
+    img{
+      display: block;
+    }
+    .circle{
+      position:absolute;
+      top:59px;
+      left:118px;
+      transition:transform ease 3s;
+    }
+    .pointer{
+      position:absolute;
+      top: 170px;
+      left: 275px;
+    }
+    .pointer img{
+      width: 150px;
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      let circle = document.querySelector('.circle')
+      let pointer = document.querySelector('.pointer')
+
+      let arr = [0,51,102,153,204,255,306]
+      let deg = 0;
+      let lock = false;
+      let timer = null;
+
+      pointer.onclick = function () {
+        if(!lock){
+          lock = true;
+          clearInterval(timer);
+          timer = setTimeout(() => {
+            lock = false;
+          }, 3000);
+        }
+        let num = Math.round(Math.random()*7);
+        deg += 720 + arr[num];
+        circle.style.transform = `rotate(${deg}deg)`
+      }
+    }
+  </script>
+</head>
+<body>
+  <div class="container">
+    <div class="circle">
+      <img src="./imgs/大转盘素材/turntable.png">
+    </div>
+    <div class="pointer">
+      <img src="./imgs/大转盘素材/pointer.png">
+    </div>
+  </div>
+</body>
+</html>

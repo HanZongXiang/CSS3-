@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>3D焦点图</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    a{
+      width: 50px;
+      height: 100px;
+      background: gray;
+      opacity: .8;
+      text-decoration: none;
+      color:#fff;
+      text-align: center;
+      line-height: 100px;
+      font-size: 30px;
+    }
+    a:nth-child(1){
+      position: absolute;
+      top:135px;
+      left:100px;
+    }
+    a:nth-child(2){
+      position: absolute;
+      top:135px;
+      right:100px;
+    }
+    .container{
+      perspective: 500px;
+    }
+    .container{
+      width: 500px;
+      height: 280px;
+      margin:50px auto;
+    }
+    ul{
+      position: relative;
+    }
+    li{
+      transition: transform linear .5s;
+      display: none;
+      position:absolute;
+      top:0;
+      left:0;
+      list-style: none;
+      width: 500px;
+      height: 280px;
+      z-index: 2;
+    }
+    .center{
+      display: block;
+      z-index: 5;
+      transform: translateZ(-50px);
+    }
+    .left1{
+      display: block;
+      z-index:4;
+      transform: translateX(-100px) rotateY(30deg) translateZ(-150px);
+    }
+    .left2{
+      display: block;
+      z-index: 3;
+      transform: translateX(-300px) rotateY(20deg) translateZ(-150px)
+    }
+    .right1{
+      display: block;
+      z-index: 4;
+      transform: translateX(100px) rotateY(-30deg) translateZ(-150px);
+    }
+    .right2{
+      display: block;
+      z-index: 3;
+      transform: translateX(300px) rotateY(-20deg) translateZ(-150px)
+    }
+  </style>
+  <script>
+    window.onload = function () {
+      var prev = document.getElementById('prev');
+      var next = document.getElementById('next');
+      var lis = Array.from(document.getElementsByTagName('li'));
+      // var lis = document.querySelectorAll("li");
+
+      var ul = document.getElementsByTagName('ul');
+      var lock = false;
+      var timer = null;
+
+      var classLists = ['left2','left1','center','right1','right2','','','',''];
+      prev.onclick = function () {
+        if(!lock) {
+          lock = true;
+          clearInterval(timer);
+          timer = setTimeout(() => {
+            lock = false;
+          }, 500);
+          
+          //shift方法：删除原数组第一项，并返回删除元素的值
+          var top = classLists.shift();
+          classLists.push(top);
+          console.log(classLists);
+          lis.forEach((li,index) => {
+            li.className = classLists[index]
+          })
+        }
+      }
+
+      next.onclick = function () {
+        if (!lock) {
+          lock = true;
+          clearInterval(timer);
+          timer = setTimeout(() => {
+            lock = false;
+          }, 500);
+
+          var bottom = classLists.pop();
+          classLists.unshift(bottom);
+          console.log(classLists);
+          lis.forEach((li, index) => {
+            li.className = classLists[index]
+          })
+        }
+      }
+    }
+  </script>
+</head>
+<body>
+  <a href="javascript:void(0)" id="prev"><</a>
+  <a href="javascript:void(0)" id="next">></a>
+  <div class="container">
+    <ul class="slider">
+      <li class="left2">
+        <img src="./imgs/3D焦点图/1.jpg">
+      </li>
+      <li class="left1">
+        <img src="./imgs/3D焦点图/2.jpg">
+      </li>
+      <li class="center">
+        <img src="./imgs/3D焦点图/3.jpg">
+      </li>
+      <li class="right1">
+        <img src="./imgs/3D焦点图/4.jpg">
+      </li>
+      <li class="right2">
+        <img src="./imgs/3D焦点图/5.jpg">
+      </li>
+      <li>
+        <img src="./imgs/3D焦点图/6.jpg">
+      </li>
+      <li>
+        <img src="./imgs/3D焦点图/7.jpg">
+      </li>
+      <li>
+        <img src="./imgs/3D焦点图/8.jpg">
+      </li>
+      <li>
+        <img src="./imgs/3D焦点图/9.jpg">
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

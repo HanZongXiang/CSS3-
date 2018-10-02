@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CSS选项卡</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .clearfix::after{
+      content:'';
+      display: block;
+      clear: both;
+    }
+    .container{
+      position: relative;
+      margin:50px auto;
+      width: 450px;
+      height: 500px;
+      text-align: center;
+      border:1px solid #888;
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    label{
+      width: 150px;
+      line-height: 50px;
+      height: 50px;
+      font-weight: 700;
+      color:#888;
+      font-size: 16px;
+      float: left;
+    }
+    ul{
+      list-style: none;
+      width: 2000px;
+      transition:transform linear .2s;
+    }
+    ul li{
+      float: left;
+      box-sizing: border-box;
+      width: 448px;
+      height: 446px;
+      color:#888;
+      padding:16px;
+    }
+    .slide{
+      position:absolute;
+      top: 50px;
+      left:0;
+      width: 150px;
+      height: 3px;
+      transition:all linear .2s;
+    }
+    .slide::after{
+      content:'';
+      display: block;
+      width: 75px;
+      height: 3px;
+      background: #409eff;
+      margin:0 auto;
+    }
+    input{
+      display:none;
+    }
+    #first:checked ~ .box label:nth-of-type(1){
+      color:#409eff;
+    }
+    #second:checked ~ .box label:nth-of-type(2){
+      color:#409eff;
+    }
+    #third:checked ~ .box label:nth-of-type(3){
+      color:#409eff;
+    }
+    #first:checked ~ ul li:nth-child(1){
+      display: block;
+    }
+    #second:checked ~ ul li:nth-child(2){
+      display: block;
+    }
+    #third:checked ~ ul li:nth-child(3){
+      display: block;
+    }
+    #first:checked ~ .slide{
+      transform: translate(0)
+    }
+    #second:checked ~ .slide{
+      transform: translate(150px)
+    }
+    #third:checked ~ .slide{
+      transform: translate(300px)
+    }
+    #first:checked ~ ul{
+      transform: translateX(0)
+    }
+    #second:checked ~ ul{
+      transform: translateX(-448px)
+    }
+    #third:checked ~ ul{
+      transform: translateX(-896px)
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="radio" name="tab" id="first" checked>
+    <input type="radio" name="tab" id="second">
+    <input type="radio" name="tab" id="third">
+    <div class="box clearfix">
+      <label for="first">首页</label>
+      <label for="second">详情</label>
+      <label for="third">关于</label>
+    </div>
+
+    <span class="slide"></span>
+
+    <ul class="clearfix">
+      <li>首页的内容</li>
+      <li>详情页的内容</li>
+      <li>关于页的内容</li>
+    </ul>
+  </div>
+</body>
+</html>
