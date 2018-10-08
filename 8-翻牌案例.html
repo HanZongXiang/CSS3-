@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    body{
+      background: #409eff;
+    }
+    ul{
+      overflow: hidden;
+      transform-style: preserve-3d;
+    }
+    li{
+      float: left;
+      margin-left: 20px;
+      transform-style: preserve-3d;
+      width: 228px;
+      height: 353px;
+      list-style: none;
+      position:relative;
+      transition: all linear .5s;
+    }
+    label{
+      display:block;
+    }
+    li div{
+      position:absolute;
+      top:0;
+      left:0;
+      width: 228px;
+      height: 353px;
+      background-size: 100% 100%!important;
+    }
+    li:nth-child(1) .front{
+      background: url('./imgs/扑克牌/liuyifei.jpg');
+    }
+    li:nth-child(1) .back{
+      background: url('./imgs/扑克牌/puke.jpg');
+    }
+    li:nth-child(2) .front{
+      background: url('./imgs/扑克牌/fengzelina.jpg');
+    }
+    li:nth-child(2) .back{
+      background: url('./imgs/扑克牌/puke.jpg');
+    }
+    li:nth-child(3) .front{
+      background: url('./imgs/扑克牌/xiaoxiannv.jpg');
+    }
+    li:nth-child(3) .back{
+      background: url('./imgs/扑克牌/puke.jpg');
+    }
+    .front{
+      transform: rotateY(180deg);
+      backface-visibility: hidden;
+    }
+    .back{
+      backface-visibility: hidden;
+    }
+    #first:checked ~ ul li:nth-child(1){
+      transform: rotateY(180deg);
+    }
+    #second:checked ~ ul li:nth-child(2){
+      transform: rotateY(180deg);
+    }
+    #third:checked ~ ul li:nth-child(3){
+      transform: rotateY(180deg);
+    }
+    .clear{
+      width: 100px;
+      height: 50px;
+      line-height: 50;
+      border-radius: 4px;
+      background: #ff6700;
+      color:#fff;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <input type="radio" name="radio" id="first">
+    <input type="radio" name="radio" id="second">
+    <input type="radio" name="radio" id="third">
+    <input type="radio" name="radio" id="clear">
+
+    <ul>
+      <li>
+        <label for="first">
+          <div class="front"></div>
+          <div class="back"></div>
+        </label>
+      </li>
+      <li>
+        <label for="second">
+          <div class="front"></div>
+          <div class="back"></div>
+        </label>
+      </li>
+      <li>
+        <label for="third">
+          <div class="front"></div>
+          <div class="back"></div>
+        </label>
+      </li>
+      <li>
+        <label for="clear" class="clear">清空</label>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>

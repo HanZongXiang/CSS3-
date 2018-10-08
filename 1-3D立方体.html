@@ -20,8 +20,8 @@
         ul{
             position:relative;
             list-style-type: none;
-            width: 200px;
-            height: 200px;
+            width: 202px;
+            height: 202px;
             margin:50px auto;
             transform-style: preserve-3d;
             transition: all linear 12s;
@@ -37,7 +37,7 @@
             font-size: 26px;
         }
         li:nth-child(1){
-            background: gold;
+            background: #ff6700;
             transform: translateZ(100px);
         }
         li:nth-child(2){
@@ -46,15 +46,19 @@
         }
         li:nth-child(3){
             background: #f0f;
+            transform: rotateX(180deg) translateZ(100px);
         }
         li:nth-child(4){
             background: #00f;
+            transform:rotateX(270deg) translateZ(100px);
         }
         li:nth-child(5){
-            background: #00ff00;
+            background: #42a342;
+            transform: rotateY(90deg) translateZ(100px);
         }
         li:nth-child(6){
             background: #ff6700;
+            transform: rotateY(-90deg) translateZ(100px);
         }
     </style>
 </head>
@@ -65,8 +69,8 @@
             <li>4</li>
             <li>3</li>
             <li>2</li>
-            <li>5</li>
-            <li>6</li>
+            <!-- <li>5</li>
+            <li>6</li> -->
         </ul>
     </div>
 </body>
