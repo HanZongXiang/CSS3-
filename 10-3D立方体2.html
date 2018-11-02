@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid #000;
+            width: 300px;
+            height: 300px;
+            margin: 150px auto;
+            perspective: 1000px;
+        }
+        .container:hover ul {
+            transform: rotateY(720deg) rotateX(720deg);
+        }
+        .container ul {
+            width: 300px;
+            height: 300px;
+            transition: all 5s ease;
+            transform-style: preserve-3d;
+            position: relative;
+            list-style-type: none;
+        }
+        .container ul li {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .container ul li img {
+            display: block;
+            width: 300px;
+            height: 300px;
+        }
+        .container ul li:nth-child(1) {
+            transform: translateZ(150px);
+        }
+        .container ul li:nth-child(2) {
+            transform: rotateX(-90deg) translateZ(150px);
+        }
+        .container ul li:nth-child(3) {
+            transform: rotateX(90deg) translateZ(150px);
+        }
+        .container ul li:nth-child(4) {
+            transform: rotateX(180deg) translateZ(150px);
+        }
+        .container ul li:nth-child(5) {
+            transform: rotateY(90deg) translateZ(150px);
+        }
+        .container ul li:nth-child(6) {
+            transform: rotateY(-90deg) translateZ(150px);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <ul>
+            <li><img src="./imgs/3D正方体/1.jpg" alt=""></li>
+            <li><img src="./imgs/3D正方体/2.jpg" alt=""></li>
+            <li><img src="./imgs/3D正方体/3.jpg" alt=""></li>
+            <li><img src="./imgs/3D正方体/4.jpg" alt=""></li>
+            <li><img src="./imgs/3D正方体/5.jpg" alt=""></li>
+            <li><img src="./imgs/3D正方体/6.jpg" alt=""></li>
+        </ul>
+    </div>
+</body>
+</html>

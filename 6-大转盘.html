@@ -38,22 +38,36 @@
       let circle = document.querySelector('.circle')
       let pointer = document.querySelector('.pointer')
 
-      let arr = [0,51,102,153,204,255,306]
-      let deg = 0;
-      let lock = false;
-      let timer = null;
+      // let arr = [0,51,102,153,204,255,306]
+      // let deg = 0;
+      // let lock = false;
+      // let timer = null;
 
-      pointer.onclick = function () {
-        if(!lock){
-          lock = true;
-          clearInterval(timer);
-          timer = setTimeout(() => {
-            lock = false;
+      // pointer.onclick = function () {
+      //   if(!lock){
+      //     lock = true;
+      //     clearInterval(timer);
+      //     timer = setTimeout(() => {
+      //       lock = false;
+      //     }, 3000);
+      //   }
+      //   let num = Math.round(Math.random()*7);
+      //   deg += 720 + arr[num];
+      //   circle.style.transform = `rotate(${deg}deg)`
+      // }
+      let isLock = false
+      var total = 0;
+      pointer.onclick = function() {
+        if (!isLock) {
+          isLock = true
+          setTimeout(() => {
+            isLock = false
           }, 3000);
+          let number = Math.round(Math.random() * 7)
+          let deg = 52
+          total += number * Math.round(360 / 7) + 720
+          circle.style.transform = `rotateZ(${total}deg)`
         }
-        let num = Math.round(Math.random()*7);
-        deg += 720 + arr[num];
-        circle.style.transform = `rotate(${deg}deg)`
       }
     }
   </script>
